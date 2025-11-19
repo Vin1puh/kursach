@@ -1,0 +1,120 @@
+@import '../@mixins';
+
+footer{
+  width: 100%;
+  height: max-content;
+  @include flex-between-column;
+
+  .CTA{
+    width: 100%;
+    height: 370px;
+    @include flex-center;
+    border-top: 2px solid rgba(25, 25, 25, 1);
+    border-bottom: 2px solid rgba(25, 25, 25, 1);
+
+    &__block{
+      width: 80%;
+      height: 50%;
+      @include flex-between;
+
+      &__left{
+        width: 70%;
+        height: 100%;
+        @include flex-between-column;
+      }
+      &__right{
+        height: 65px;
+      }
+    }
+  }
+  .footer{
+    width: 100%;
+    height: 560px;
+    @include flex-between-column;
+
+    .top{
+      width: 100%;
+      height: 460px;
+      @include flex-center;
+
+      &__block{
+        width: 80%;
+        height: 60%;
+        @include flex-between;
+        align-items: start;
+
+        &__left{
+          width: 30%;
+          height: 50%;
+          @include flex-between-column;
+          align-items: start;
+
+          form{
+            width: 100%;
+            height: 66px;
+            border: 1px solid rgba(38, 38, 38, 1);
+            border-radius: 1rem;
+            @include flex-center;
+
+            .block{
+              width: 80%;
+              height: 50%;
+              @include flex-between;
+
+              input{
+                width: 75%;
+                background: transparent;
+                border: none;
+                font-size: 2rem;
+                color: white;
+                outline: none;
+
+                &::placeholder{
+                  color: rgba(153, 153, 153, 1);
+                }
+              }
+            }
+          }
+        }
+        &__right{
+          width: 50%;
+          height: 100%;
+          @include flex-between;
+
+          .column{
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+
+            p{
+              margin-bottom: 2rem;
+            }
+            a{
+              line-height: 250%;
+            }
+          }
+        }
+      }
+    }
+    .bottom{
+      width: 100%;
+      height: 100px;
+      background: rgba(26, 26, 26, 1);
+      @include flex-center;
+
+      &__block{
+        width: 80%;
+        @include flex-between;
+
+        &__left{
+          width: 35%;
+          @include flex-between;
+        }
+        &__right{
+          width: 18%;
+          @include flex-between;
+        }
+      }
+    }
+  }
+}

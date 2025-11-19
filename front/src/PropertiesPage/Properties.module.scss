@@ -1,0 +1,401 @@
+@import '../@mixins';
+.first{
+  width: 100%;
+  height: 450px;
+  @include flex-center;
+  background: linear-gradient(315deg, rgba(20, 20, 20, 1) 50%, rgba(38, 38, 38, 1) 100%);
+  border-top: 2px solid rgba(38, 38, 38, 1);
+  border-bottom: 2px solid rgba(38, 38, 38, 1);
+
+  &__block{
+    width: 80%;
+    height: 30%;
+    @include flex-between-column;
+    align-items: start;
+  }
+}
+.form_section{
+  width: 80%;
+  height: 205px;
+  @include flex-between-column;
+  position: relative;
+  bottom: 50px;
+
+  .form{
+    width: 80%;
+    height: 100px;
+    border-top-right-radius: 2rem;
+    border-top-left-radius: 2rem;
+    border: 10px solid rgba(25, 25, 25, 1);
+    @include flex-center;
+
+    &__block{
+      width: 100%;
+      height: 90px;
+      border-top-right-radius: 1rem;
+      border-top-left-radius: 1rem;
+      background: rgba(20, 20, 20, 1);
+      border: 1px solid rgba(38, 38, 38, 1);
+      @include flex-center;
+
+      &__space{
+        width: 97%;
+        height: 70%;
+        @include flex-between;
+
+        input{
+          width: 70%;
+          height: 100%;
+          background: transparent;
+          border: none;
+          outline: none;
+          color: white;
+          font-size: 2.4rem;
+        }
+        button{
+          cursor: pointer;
+          width: 185px;
+          height: 65px;
+          border-radius: 1rem;
+          border: none;
+          background: #703BF7;
+          text-align: center;
+          font-size: 1.8rem;
+          color: white;
+          @include flex-evenly;
+          transition: .33s;
+
+          &:hover{
+            scale: 1.1;
+          }
+        }
+      }
+    }
+  }
+  .form2{
+    width: 100%;
+    height: 115px;
+    border-radius: 2rem;
+    background: rgba(25, 25, 25, 1);
+    @include flex-center;
+
+    &__block{
+      width: 98%;
+      height: 70%;
+      @include flex-between;
+
+      .select{
+        width: 18%;
+        height: 100%;
+        border-radius: 1rem;
+        border: 1px solid rgba(38, 38, 38, 1);
+        background: rgba(20, 20, 20, 1);
+      }
+      select{
+        width: 100%;
+        height: 100%;
+        outline: none;
+        border: none;
+        cursor: pointer;
+        border-radius: 1rem;
+        padding-left: 2rem;
+        padding-right: 2rem;
+        color: #999999;
+        font-size: 1.8rem;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        background: url('../assets/select.png') no-repeat right;
+        background-position-x: calc(100% - 1rem);
+
+        option{
+          background: rgba(20, 20, 20, 1);
+        }
+      }
+    }
+  }
+}
+.sliders{
+  width: 80%;
+  height: max-content;
+  @include flex-between-column;
+
+  .top{
+    width: 100%;
+    height: 140px;
+    @include flex-between;
+    align-items: end;
+
+    &__left{
+      width: 70%;
+      height: 100%;
+      @include flex-between-column;
+      align-items: start;
+    }
+    button{
+      cursor: pointer;
+      width: 200px;
+      height: 65px;
+      color: white;
+      font-size: 1.8rem;
+      background: rgba(20, 20, 20, 1);
+      border-radius: 1rem;
+      border: 1px solid rgba(38, 38, 38, 1);
+      transition: .33s;
+
+      &:hover{
+        scale: 1.1;
+      }
+    }
+  }
+  .middle{
+    @include flex-between;
+    width: 100%;
+    flex-wrap: wrap;
+    height: max-content;
+
+    .card{
+      width: 31%;
+      height: 700px;
+      border-radius: 1rem;
+      border: 1px solid rgba(38, 38, 38, 1);
+      @include flex-center;
+      margin-bottom: 5rem;
+      transition: .33s;
+
+      &__block{
+        width: 90%;
+        height: 90%;
+        @include flex-between-column;
+        align-items: start;
+
+        img{
+          width: 100%;
+          height: 50%;
+        }
+        h4{
+          font-size: 2.4rem;
+          color: white;
+        }
+        .button_cont{
+          width: 100%;
+          height: 45px;
+          @include flex-between;
+
+          button{
+            cursor: pointer;
+            width: max-content;
+            height: 100%;
+            color: white;
+            border-radius: 2rem;
+            background: rgba(25, 25, 25, 1);
+            border: 1px solid rgba(38, 38, 38, 1);
+
+            a{
+              margin-left: 1rem;
+              margin-right: 1rem;
+            }
+          }
+        }
+        .view_block{
+          width: 100%;
+          height: 65px;
+          @include flex-between;
+
+          .price_block{
+            height: 100%;
+            @include flex-between-column;
+            align-items: start;
+          }
+          button{
+            width: 70%;
+            height: 100%;
+            background: #703BF7;
+            color: white;
+            border: none;
+            border-radius: 1rem;
+            font-size: 1.8rem;
+            transition: .33s;
+
+            &:hover{
+              scale: 1.1;
+            }
+          }
+        }
+      }
+    }
+  }
+  .bottom{
+    width: 100%;
+    height: 80px;
+    border-top: 1px solid rgba(38, 38, 38, 1);
+    @include flex-between;
+
+    span{
+      color: white;
+    }
+    &__right{
+      width: 130px;
+      height: 60px;
+      @include flex-between;
+
+      button{
+        cursor: pointer;
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        background: rgba(25, 25, 25, 1);
+        border: 1px solid rgba(38, 38, 38, 1);
+        font-size: 3rem;
+        color: white;
+        transition: .33s;
+
+        &:hover{
+          scale: 1.1;
+        }
+      }
+    }
+  }
+}
+.makeit{
+  width: 80%;
+  @include flex-between-column;
+  align-items: start;
+
+  &__top{
+    width: 80%;
+    height: 150px;
+    @include flex-between-column;
+    align-items: start;
+  }
+  &__bottom{
+    width: 100%;
+    height: 1020px;
+    border-radius: 1rem;
+    border: 1px solid rgba(38, 38, 38, 1);
+    @include flex-center;
+
+    form{
+      width: 85%;
+      height: 80%;
+      @include flex-between-column;
+
+      .section{
+        width: 100%;
+        @include flex-between;
+
+        span{
+          color: red;
+          font-size: 1.5rem;
+        }
+        .little{
+          width: 21%;
+          height: 115px;
+          @include flex-between-column;
+          align-items: start;
+        }
+        .radio{
+          height: 25px;
+          display: flex;
+          align-items: center;
+
+          p{
+            margin-right: 2rem;
+            margin-left: 2rem;
+          }
+          input{
+            cursor: pointer;
+            appearance: none;
+            width: 25px;
+            height: 25px;
+            background-color: rgba(25, 25, 25, 1);
+            border-radius: 0.5rem;
+            border: 1px solid rgba(38, 38, 38, 1);
+
+            &:checked{
+              background-image: url('../assets/radio.png');
+              background-position: center;
+              background-repeat: no-repeat;
+            }
+          }
+        }
+        input[type='submit']{
+          width: 250px;
+          height: 60px;
+          border-radius: 1rem;
+          color: white;
+          background: #703BF7;
+          font-size: 1.8rem;
+          cursor: pointer;
+          padding-left: 0;
+        }
+        .message{
+          width: 100%;
+          height: 215px;
+          @include flex-between-column;
+          align-items: start;
+
+          textarea{
+            height: 170px;
+            width: 100%;
+            border-radius: 1rem;
+            padding-top: 1rem;
+            padding-left: 2rem;
+            background: rgba(25, 25, 25, 1);
+            border: 1px solid rgba(38, 38, 38, 1);
+            outline: none;
+            color: white;
+            font-size: 2.4rem;
+          }
+        }
+        .big{
+          width: 47.5%;
+          height: 115px;
+          @include flex-between-column;
+          align-items: start;
+
+          .insert{
+            width: 100%;
+            @include flex-between;
+
+            input{
+              width: 45%;
+            }
+          }
+        }
+        label{
+          font-size: 2rem;
+          color: white;
+        }
+        input{
+          width: 100%;
+          height: 70px;
+          border-radius: 1rem;
+          padding-left: 2rem;
+          background: rgba(25, 25, 25, 1);
+          border: 1px solid rgba(38, 38, 38, 1);
+          outline: none;
+          color: white;
+          font-size: 2rem;
+        }
+        select{
+          width: 100%;
+          height: 75px;
+          outline: none;
+          border: 1px solid rgba(38, 38, 38, 1);
+          cursor: pointer;
+          border-radius: 1rem;
+          padding-left: 2rem;
+          color: #999999;
+          font-size: 2rem;
+          -webkit-appearance: none;
+          -moz-appearance: none;
+          appearance: none;
+          background: url('../assets/select.png') no-repeat right;
+          background-color: rgba(25, 25, 25, 1);
+          background-position-x: calc(100% - 1rem);
+        }
+      }
+    }
+  }
+}
