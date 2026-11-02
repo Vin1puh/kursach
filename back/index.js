@@ -1,19 +1,22 @@
-const express = require('express')
-const { Pool } = require('pg');
-const cors = require('cors');
+const https = require('https');
+const fs = require('fs');
+const helmet = require('helmet');
 
-const app = express();
-app.use(cors());
-app.use(express.json());
+// Включение HSTS и заголовков безопасности (Слайд 14)
+app.use(helmet.hsts({
+    maxAge: 31536000,
+    includeSubDomains: true,
+    preload: true
+}));
 
-const pool = new Pool({
-    user: 'postgres',
-    password: '13579Boris1337',
-    host: 'localhost',
-    port: 5432,
-    database: 'postgres',
-})
+const options = {
+    key: fs.readFileSync('certs/server.key'),
+    cert: fs.readFileSync('certs/server.crt')
+};
 
+https.createServer(options, app).listen(443, () => {
+    console.log('Trusted HTTPS Server running on port 443');
+});
 
 
 const tablesConfig = [
