@@ -587,3 +587,15 @@ app.get('/api/properties/:id', async (req, res) => {
     }
     res.json(property);
 });
+
+app.post('/api/logout', (req, res) => {
+    if (req.session) {
+        req.session.destroy((err) => {
+            if (err) {
+                return res.status(500).json({ error: "Ошибка закрытия доверенного пути" });
+            }
+            res.clearCookie('connect.sid');
+            return res.status(200).json({ message: "Сессия успешно очищена" });
+        });
+    }
+});
