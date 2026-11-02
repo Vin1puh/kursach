@@ -18,6 +18,26 @@ https.createServer(options, app).listen(443, () => {
     console.log('Trusted HTTPS Server running on port 443');
 });
 
+const winston = require('winston');
+
+const logger = winston.createLogger({
+    level: 'info',
+    format: winston.format.json(),
+    transports: [
+        new winston.transports.File({ filename: 'logs/security_audit.log', flags: 'a' })
+    ]
+});
+
+app.use((err, req, res, next) => {
+    logger.error({
+        timestamp: new Date().toISOString(),
+        event: 'AUTHORIZATION_FAILURE',
+        ip: req.ip,
+        requested_url: req.originalUrl,
+        user_id: req.user ? req.user.id : 'ANONYMOUS'
+    });
+    res.status(403).send('Security Incident Logged');
+});
 
 const tablesConfig = [
     {
