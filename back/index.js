@@ -575,7 +575,15 @@ app.post('/contact', async (req, res) => {
     }
 });
 
-const PORT = 3000;
-app.listen(PORT, () => {
-    console.log(`Сервер запущен на порту ${PORT}`);
+app.get('/api/properties/:id', async (req, res) => {
+    const userClearance = req.user.clearance_level;
+    const propertyId = req.params.id;
+
+    const result = await pool.query('SELECT *, classification FROM properties WHERE id = $1', [propertyId]);
+    const property = result.rows[0];
+
+    if (property.classification > userClearance) {
+        return res.status(403).json({ error: "Security Clearence Insufficient (Мандатный запрет)" });
+    }
+    res.json(property);
 });
